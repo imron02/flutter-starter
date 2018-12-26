@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class WelcomeScreen extends StatelessWidget {
+  void _navigate(BuildContext context, String path) {
+    Navigator.pushNamed(context, path);
+  }
+
+  TextSpan buildPrivacyText(String wording, Color color) {
+    return TextSpan(
+      text: wording, 
+      style: TextStyle(color: color)
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +48,10 @@ class WelcomeScreen extends StatelessWidget {
                       text: TextSpan(
                         style: TextStyle(fontSize: 12),
                         children: <TextSpan>[
-                          TextSpan(text: 'Read our ', style: TextStyle(color: Colors.black)),
-                          TextSpan(text: 'Privacy Policy. ', style: TextStyle(color: Colors.blue)),
-                          TextSpan(text: 'Tap "Agree and continue" to accept the ', style: TextStyle(color: Colors.black)),
-                          TextSpan(text: 'Term of Service.', style: TextStyle(color: Colors.blue)),
+                          buildPrivacyText('Read our ', Colors.black),
+                          buildPrivacyText('Privacy Policy. ', Colors.blue),
+                          buildPrivacyText('Tap "Agree and continue" to accept the ', Colors.black),
+                          buildPrivacyText('Term of Service.', Colors.blue),
                         ]
                       ),
                     ),
@@ -49,7 +60,9 @@ class WelcomeScreen extends StatelessWidget {
                       child: RaisedButton(
                         textColor: Colors.white,
                         color: Color.fromRGBO(101, 207, 114, 1.0),
-                        onPressed: () {},
+                        onPressed: () {
+                          _navigate(context, '/login');
+                        },
                         child: new Text("AGREE AND CONTINUE"),
                       ),
                     )
