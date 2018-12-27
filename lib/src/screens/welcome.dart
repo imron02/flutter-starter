@@ -3,7 +3,7 @@ import 'dart:ui';
 
 class WelcomeScreen extends StatelessWidget {
   void _navigate(BuildContext context, String path) {
-    Navigator.pushNamed(context, path);
+    Navigator.pushReplacementNamed(context, path);
   }
 
   TextSpan buildPrivacyText(String wording, Color color) {
