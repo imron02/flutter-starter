@@ -58,8 +58,6 @@ class WelcomeScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 25.0),
                       child: RaisedButton(
-                        textColor: Colors.white,
-                        color: Color.fromRGBO(101, 207, 114, 1.0),
                         onPressed: () {
                           _navigate(context, '/login');
                         },
